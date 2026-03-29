@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Image to PDF Converter Online</title>
+
+<meta name="description" content="Convert images to PDF online for free. Fast, secure and easy to use image to PDF converter.">
+
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📄 Image to PDF Converter</h1>
+    <p class="subtitle">Fast • Free • No Signup</p>
+
+    <form action="/convert" method="post" enctype="multipart/form-data">
+        
+        <label class="upload-box">
+            <input type="file" name="images" multiple id="fileInput">
+            <span>Click or Drag Images Here</span>
+        </label>
+
+        <div id="preview"></div>
+
+        <button type="submit">Convert to PDF 🚀</button>
+    </form>
+</div>
+
+<script>
+const input = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+
+input.addEventListener("change", () => {
+    preview.innerHTML = "";
+    for (let file of input.files) {
+        let div = document.createElement("div");
+        div.textContent = file.name;
+        preview.appendChild(div);
+    }
+});
+</script>
+
+</body>
+</html>
